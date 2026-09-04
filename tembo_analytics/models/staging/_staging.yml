@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_hotel_bookings
+    columns:
+
+      - name: booking_id
+        data_type: VARCHAR
+        tests:
+          - unique
+          - not_null
+
+      - name: booking_status
+        data_type: VARCHAR
+        tests:
+          - accepted_values:
+              values:
+                - 'Cancelled'
+                - 'Checked Out'
+                - 'No Show'

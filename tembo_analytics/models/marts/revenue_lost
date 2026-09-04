@@ -1,0 +1,4 @@
+WITH source AS(SELECT * FROM {{ ref('stg_hotel_bookings')}})
+    SELECT SUM(amount_paid) AS lost_revenue
+    FROM source
+    WHERE booking_status = 'Cancelled'
